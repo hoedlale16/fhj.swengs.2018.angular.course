@@ -1,0 +1,7 @@
+<h1>Current available Users:</h1>
+<div *ngFor="let user of users">
+  User: {{user.username}}<a [routerLink]="'/user-form/' + user.username">Edit</a> <button type="button" (click)="deleteUser(user)">Delete</button>
+</div>
+<button type="button" (click)="createUser()">
+  Create new User
+</button>

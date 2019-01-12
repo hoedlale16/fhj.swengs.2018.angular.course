@@ -1,0 +1,16 @@
+<form (ngSubmit)="saveActor()">
+  <label>
+    First name:
+    <input type="text" name="firstName" [(ngModel)]="actor.firstName"/>
+  </label>
+  <label>
+    Last name:
+    <input type="text" name="lastName" [(ngModel)]="actor.lastName"/>
+  </label>
+  <button type="submit">
+    Save
+  </button>
+  <button type="submit" (click)="setShouldNavigateToList()">
+    Save and Back
+  </button>
+</form>

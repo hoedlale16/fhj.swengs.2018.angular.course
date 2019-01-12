@@ -1,0 +1,39 @@
+<form (ngSubmit)="saveUser()" *ngIf="user">
+  <label>
+    User name:
+    <div *ngIf="isCreateForm; then create_form else update_form"></div>
+      <ng-template #create_form>
+        <input  type="text" name="username" [(ngModel)]="user.username"/>
+      </ng-template>
+      <ng-template #update_form>
+        <input readonly type="text" name="username" [(ngModel)]="user.username"/>
+      </ng-template>
+
+  </label>
+  <label>
+  Password:
+  <input type="password" name="password" [(ngModel)]="user.password"/>
+  </label>
+  <label>
+    First name:
+    <input type="text" name="firstname" [(ngModel)]="user.firstname"/>
+  </label>
+  <label>
+    Last name:
+    <input type="text" name="lastname" [(ngModel)]="user.lastname"/>
+  </label>
+  <label>
+    Role:
+    <select name="role" [(ngModel)]="selectedRole" >
+      <option *ngFor="let role of userRoles" name="roleName"
+              [ngValue]="role"
+              [attr.selected]="user.role.roleName==role.roleName ? true : null">
+        {{role.roleName}}
+      </option>
+    </select>
+  </label>
+
+  <button type="submit">
+    Save
+  </button>
+</form>
